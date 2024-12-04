@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Web Personnel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Corps de la page */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Menu de navigation */
+        nav {
+            background-color: #333;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-family: 'Roboto', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #333;
+            background-color: white;
+            transform: scale(1.1);
+        }
+
+        /* En-tête */
+        header {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.5em;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        /* Page d'accueil avec fond */
+        .accueil {
+            background-image: url('../static/garde.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0;
+            text-align: center;
+            color: #c7642b;
+        }
+
+        .accueil h1 {
+            font-size: 3em;
+        }
+
+        /* Photo et présentation */
+        .photo-container {
+            text-align: center;
+            margin-top: -5px;
+        }
+
+        .photo-container img {
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contenu de profil et sections */
+        .presentation, .disponibilite, .experience, .competences {
+            background-color: #fff;
+            padding: 40px 30px;
+            margin: 30px auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            text-align: left;
+        }
+
+        .presentation h2, .disponibilite h3, .competences h3, .experience h3 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .presentation p, .disponibilite p, .competences ul li {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .presentation a {
+            color: #c7642b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .presentation ul {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .presentation ul li {
+            margin-bottom: 12px;
+        }
+
+        /* Mise en page pour les compétences */
+        .competences ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .competences ul li {
+            margin-bottom: 12px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .experience ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .experience ul li {
+            font-size: 1.1em;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1em;
+            margin: 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Répondre aux écrans mobiles */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul li a {
+                font-size: 1.2em;
+                padding: 10px 20px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .photo-container img {
+                width: 150px;
+                height: 150px;
+            }
+
+            .presentation {
+                padding: 20px;
+            }
+
+            footer p {
+                font-size: 0.9em;
+            }
+        }
+
+        /* Masquer les autres pages par défaut */
+        .page {
+            display: none;
+        }
+
+        /* Afficher la page spécifique */
+        .page.show {
+            display: block;
+        }
+
+        /* Nouvelle section - Compétences */
+        .competences h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* Carte des compétences */
+        .competences-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .competences-card h3 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .competences-card ul {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .competences-card li {
+            margin-bottom: 10px;
+        }
+
+        .competences-card li strong {
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Menu de navigation -->
+    <nav>
+        <ul>
+            <li><a href="javascript:void(0)" onclick="showPage('accueil')">Accueil</a></li>
+            <li><a href="javascript:void(0)" onclick="showPage('profil')">Profil</a></li>
+            <li><a href="javascript:void(0)" onclick="showPage('experiences')">Expériences</a></li>
+            <li><a href="javascript:void(0)" onclick="showPage('competences')">Compétences</a></li>
+            <li><a href="javascript:void(0)" onclick="showPage('projets')">Projets</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page d'accueil avec fond -->
+    <div class="accueil page" id="accueil">
+        <h1>"Bienvenue sur le site de NADEGE KANGNI-SOUKP</h1>
+        <p class="message-bas">L'endroit où données et expertise se rencontrent</p>
+    </div>
+
+    <!-- Page Profil -->
+    <div class="page" id="profil">
+        <div class="photo-container">
+            <img src="../static/alice.jpg" alt="Alice">
+        </div>
+        <div class="presentation">
+            <h2>Profil</h2>
+            <p>Je suis <strong>Nadège Kangni-Soukpe</strong>, actuellement en formation de Chef de Projet IA à l'IA School de Lille.
+            </p>
+            <p>Passionnée par l'analyse de données et le développement, j'ai acquis des compétences solides en <strong>gestion et modélisation des données</strong>, en <strong>utilisation de Python, SQL, et des outils de visualisation comme Tableau et Power BI</strong>.</p>
+            <p>Je suis disponible dès maintenant et à la recherche d'une <strong>alternance en Data Analyst</strong>.</p>
+            <p><a href="../static/alice_cv.pdf" target="_blank" class="cv-link">Télécharger mon CV (PDF)</a></p>
+        </div>
+
+        <div class="disponibilite">
+            <h3>Informations sur ma disponibilité</h3>
+            <p>Je suis actuellement a la recherche d'alternance avec un rythme de <span>3 semaines en entreprise / 1 semaine d’école</span>, pour une durée de <span>2 ans</span>.</p>
+            <p>Je suis disponible <span>immédiatement</span> pour toute nouvelle opportunité professionnelle ou projet.</p>
+        </div>
+
+    </div>
+
+    <!-- Page Expériences professionnelles -->
+    <div class="page" id="experiences">
+        <h2></h2>
+
+        <div class="experience">
+            <h3>Data Analyst</h3>
+            <p><strong>ERATECH - LOMÉ, TOGO</strong></p>
+            <p><strong>De mars 2023 à août 2023</strong></p>
+            <ul>
+                <li>Analyse et transcription des exigences client.</li>
+                <li>Étude des données visant à soutenir la définition des besoins métier.</li>
+                <li>Accompagnement dans la formulation et la définition des KPI.</li>
+                <li>Modélisation des données.</li>
+                <li>Conception, développement et maintenance des données.</li>
+                <li>Élaboration de tableau de bord pour le suivi des activités.</li>
+            </ul>
+        </div>
+
+        <div class="experience">
+            <h3>Stagiaire Data Analyst</h3>
+            <p><strong>CESTI - LOMÉ, TOGO</strong></p>
+            <p><strong>De janvier 2022 à juin 2022</strong></p>
+            <ul>
+                <li>Préparation des données pour analyse.</li>
+                <li>Visualisation des données sous forme de tableaux de bord.</li>
+                <li>Étude des bases de données à l’aide de SQL.</li>
+                <li>Réalisation de présentations pour des réunions d’équipe et de suivi des projets.</li>
+            </ul>
+        </div>
+
+        <div class="experience">
+            <h3>Analyste de données</h3>
+            <p><strong>SUPER U - LOMÉ, TOGO</strong></p>
+            <p><strong>De mars 2021 à décembre 2021</strong></p>
+            <ul>
+                <li>Création et gestion de bases de données internes pour la gestion des produits.</li>
+                <li>Analyse des données internes de vente et prévisions des tendances.</li>
+                <li>Création de rapports de performance.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Page Compétences -->
+    <div class="page" id="competences">
+        <h2></h2>
+
+        <div class="competences-card">
+            <h3>Compétences techniques</h3>
+            <ul>
+                <li>Langages : <strong>Python, SQL, Java</strong></li>
+                <li>Outils : <strong>Tableau, Power BI, Excel, Jupyter, Visual Studio Code</strong></li>
+                <li>Gestion des bases de données : <strong>MySQL, PostgreSQL</strong></li>
+                <li>Modélisation de données et analyse de tendances</li>
+            </ul>
+        </div>
+
+        <div class="competences-card">
+            <h3>Compétences interpersonnelles</h3>
+            <ul>
+                <li>Communication et travail d'équipe</li>
+                <li>Gestion de projets et respect des délais</li>
+                <li>Analyse critique et résolution de problèmes</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Nadège Kangni-Soukpe | <a href="mailto:nado161997@gmail.com">Contactez-moi</a></p>
+    </footer>
+    
+    <script>
+        function showPage(page) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(p => p.style.display = 'none');
+            document.getElementById(page).style.display = 'block';
+        }
+        // Affiche la page d'accueil par défaut
+        showPage('accueil');
+    </script>
+</body>
+</html>

@@ -1,0 +1,186 @@
+/* Corps de la page */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Menu de navigation */
+nav {
+    background-color: #333;
+    padding: 12px 0; /* Plus d'espace pour mieux séparer le menu du reste de la page */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Espace entre les éléments du menu */
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 16px; /* Ajout de padding pour une meilleure cliquabilité */
+    border-radius: 5px; /* Ajout de coins arrondis */
+    transition: all 0.3s ease; /* Effet transition fluide au survol */
+}
+
+nav ul li a:hover {
+    color: #333;
+    background-color: white;
+    transform: scale(1.1); /* Légère animation au survol */
+}
+
+/* En-tête */
+header {
+    background-color: #333;
+    color: rgb(14, 0, 0);
+    padding: 30px 0; /* Un peu plus d'espace pour l'en-tête */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5em;
+    font-weight: 400;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* Photo et présentation */
+.photo-container {
+    text-align: center;
+    margin-top: -50px;
+}
+
+.photo-container img {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.presentation {
+    background-color: #fff;
+    padding: 40px 30px;
+    margin: 60px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    text-align: left;
+}
+
+.presentation h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.presentation p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.presentation a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.presentation ul {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.presentation ul li {
+    margin-bottom: 12px;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 30px 20px; /* Plus d'espace pour un footer plus aéré */
+    margin-top: 60px;
+    text-align: center;
+}
+
+footer p {
+    font-size: 1em;
+    margin: 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Répondre aux écrans mobiles */
+@media (max-width: 768px) {
+    /* Menu responsive (mobile) */
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 1.2em;
+        padding: 10px 20px;
+    }
+
+    /* En-tête */
+    header h1 {
+        font-size: 2em;
+    }
+
+    /* Photo */
+    .photo-container img {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Section présentation */
+    .presentation {
+        padding: 20px;
+    }
+
+    /* Footer */
+    footer p {
+        font-size: 0.9em;
+    }
+}
+
+    .cv-link {
+        color: orange; /* Couleur du lien */
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .cv-link:hover {
+        color: #e65100; /* Couleur d'orange plus foncée au survol */
+        text-decoration: underline;
+    }
+
+    /* Autres styles CSS ici... */
